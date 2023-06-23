@@ -1,5 +1,4 @@
-# Dreamscape Chronicles
-# Zane's Dream Journal Blog
+# Dreamscape Chronicles, Zane's Dream Journal Blog
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
@@ -11,6 +10,6 @@
 Dreamscape Chronicles is a website created with Flask framework, Bootstrap 5, CSS, HTML, and JavaScript. Its mainly use is to document dreams as an online blog.
 
 ## Features
-- Register and log-in forms so users can sign in with indevidual acounts 
-- A contect form that will send emails to me with 
-- HTML sanitizer to parse and sanitize client input for added cybersecurity
+- Register and log-in forms so users can sign in with indevidual acounts. 
+- A contect form that will send emails to me with smtplib.
+- Admin users can edit and make new post. Regular users can only post comments.
