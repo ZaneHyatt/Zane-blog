@@ -1,0 +1,55 @@
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>gunicorn==20.1.0\ncertifi==2020.6.20\nchardet==3.0.4\nclick==7.1.2\ndominate==2.5.2\nFlask==1.1.2\nFlask-Bootstrap==3.3.7.1\nFlask-CKEditor==0.4.4.1\nFlask-Gravatar==0.5.0\nFlask-Login==0.5.0\nFlask-SQLAlchemy==2.4.4\nFlask-WTF==0.14.3\nidna==2.10\nitsdangerous==1.1.0\nJinja2==2.11.2\nMarkupSafe==1.1.1\nrequests==2.24.0\nSQLAlchemy==1.3.19\nurllib3==1.25.10\nvisitor==0.1.3\nWerkzeug==1.0.1\nWTForms==2.3.3\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/requirements.txt b/requirements.txt
+--- a/requirements.txt	(revision 8caed9f284cbc7b46a96d47faa6cc58e245312a9)
++++ b/requirements.txt	(date 1687560126948)
+@@ -20,3 +20,5 @@
+ visitor==0.1.3
+ Werkzeug==1.0.1
+ WTForms==2.3.3
++
++python-dotenv~=1.0.0
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"bcc330b9-5320-4531-9c9e-c4d3dafcfcbf\" name=\"Changes\" comment=\"Add env key\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2PwK2NowzZgOisZWkXU7kXCpWxg\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/zanehyatt/Desktop/100Day Code/Projects/Starting+Files+-+blog-with-users-start&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/static/img\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"bcc330b9-5320-4531-9c9e-c4d3dafcfcbf\" name=\"Changes\" comment=\"\" />\n      <created>1684362495318</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1684362495318</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\n      <created>1684702012891</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684702012891</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Initial Commit\">\n      <created>1684702078675</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684702078675</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Initial Commit\">\n      <created>1684786107102</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684786107102</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Initial Commit\">\n      <created>1684786115570</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684786115570</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add gunicorn\">\n      <created>1687374921263</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687374921263</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Add gunicorn\">\n      <created>1687406885430</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687406885430</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Add env key\">\n      <created>1687466372724</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687466372724</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Add env key\">\n      <created>1687485455822</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687485455822</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"9\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Initial Commit\" />\n    <MESSAGE value=\"Add gunicorn\" />\n    <MESSAGE value=\"Add env key\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add env key\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8caed9f284cbc7b46a96d47faa6cc58e245312a9)
++++ b/.idea/workspace.xml	(date 1687560127040)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="bcc330b9-5320-4531-9c9e-c4d3dafcfcbf" name="Changes" comment="Add env key" />
++    <list default="true" id="bcc330b9-5320-4531-9c9e-c4d3dafcfcbf" name="Changes" comment="Add env key">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -101,7 +104,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1687485455822</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="Add env key">
++      <created>1687486203173</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1687486203173</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">

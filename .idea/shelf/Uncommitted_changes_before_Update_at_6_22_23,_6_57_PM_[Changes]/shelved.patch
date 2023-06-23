@@ -1,0 +1,184 @@
+Index: templates/contact.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% include \"header.html\" %}\n\n  <!-- Page Header -->\n  <header class=\"masthead\" style=\"background-image: url('{{ url_for('static', filename='img/contact-bg.png')}}')\">\n    <div class=\"overlay\"></div>\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-8 col-md-10 mx-auto\">\n          <div class=\"page-heading\">\n            <h1>Contact Me</h1>\n            <span class=\"subheading\">Have questions? I have answers.</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </header>\n\n  <!-- Main Content -->\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 col-md-10 mx-auto\">\n        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>\n        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->\n        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->\n        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->\n        <form name=\"sentMessage\" id=\"contactForm\" novalidate>\n          <div class=\"control-group\">\n            <div class=\"form-group floating-label-form-group controls\">\n              <label>Name</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" id=\"name\" required data-validation-required-message=\"Please enter your name.\">\n              <p class=\"help-block text-danger\"></p>\n            </div>\n          </div>\n          <div class=\"control-group\">\n            <div class=\"form-group floating-label-form-group controls\">\n              <label>Email Address</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email Address\" id=\"email\" required data-validation-required-message=\"Please enter your email address.\">\n              <p class=\"help-block text-danger\"></p>\n            </div>\n          </div>\n          <div class=\"control-group\">\n            <div class=\"form-group col-xs-12 floating-label-form-group controls\">\n              <label>Phone Number</label>\n              <input type=\"tel\" class=\"form-control\" placeholder=\"Phone Number\" id=\"phone\" required data-validation-required-message=\"Please enter your phone number.\">\n              <p class=\"help-block text-danger\"></p>\n            </div>\n          </div>\n          <div class=\"control-group\">\n            <div class=\"form-group floating-label-form-group controls\">\n              <label>Message</label>\n              <textarea rows=\"5\" class=\"form-control\" placeholder=\"Message\" id=\"message\" required data-validation-required-message=\"Please enter a message.\"></textarea>\n              <p class=\"help-block text-danger\"></p>\n            </div>\n          </div>\n          <br>\n          <div id=\"success\"></div>\n          <button type=\"submit\" class=\"btn btn-primary\" id=\"sendMessageButton\">Send</button>\n        </form>\n      </div>\n    </div>\n  </div>\n\n  <hr>\n\n  {% include \"footer.html\" %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/contact.html b/templates/contact.html
+--- a/templates/contact.html	(revision 2289c8ea17b4225677f8dae7a267fd62752bce0b)
++++ b/templates/contact.html	(date 1687485363368)
+@@ -15,51 +15,50 @@
+     </div>
+   </header>
+ 
++  <!-- Main Content -->
+   <!-- Main Content -->
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-8 col-md-10 mx-auto">
+-        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+-        <form name="sentMessage" id="contactForm" novalidate>
++        <form name="sentMessage" id="contactForm" action="{{ url_for('contact') }}" method="post" novalidate>
+           <div class="control-group">
+             <div class="form-group floating-label-form-group controls">
+               <label>Name</label>
+-              <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
++              <input type="text" name="name" class="form-control" placeholder="Name" id="name" oninvalid="this.setCustomValidity('Enter User Name Here')"
++       oninput="this.setCustomValidity('')">
+               <p class="help-block text-danger"></p>
+             </div>
+           </div>
+           <div class="control-group">
+             <div class="form-group floating-label-form-group controls">
+               <label>Email Address</label>
+-              <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
++              <input type="email" name="email" class="form-control" placeholder="Email Address" id="email" data-validation-required-message="Please enter your email address." required>
+               <p class="help-block text-danger"></p>
+             </div>
+           </div>
+           <div class="control-group">
+             <div class="form-group col-xs-12 floating-label-form-group controls">
+               <label>Phone Number</label>
+-              <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
++              <input type="tel" name="phone" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+               <p class="help-block text-danger"></p>
+             </div>
+           </div>
+           <div class="control-group">
+             <div class="form-group floating-label-form-group controls">
+               <label>Message</label>
+-              <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
++              <textarea rows="5" name="message" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+               <p class="help-block text-danger"></p>
+             </div>
+           </div>
+           <br>
+           <div id="success"></div>
+-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
++          <button type="submit" class="btn btn-light" id="sendMessageButton">Send</button>
+         </form>
+       </div>
+     </div>
+   </div>
+ 
+-  <hr>
+-
+   {% include "footer.html" %}
+\ No newline at end of file
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import Flask, render_template, redirect, url_for, flash\nfrom flask_bootstrap import Bootstrap\nfrom flask_ckeditor import CKEditor\nfrom datetime import date\nfrom werkzeug.security import generate_password_hash, check_password_hash\nfrom flask_sqlalchemy import SQLAlchemy\nfrom sqlalchemy.orm import relationship\nfrom flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user\nfrom forms import CreatePostForm\nfrom flask_gravatar import Gravatar\nfrom forms import CreatePostForm, RegisterForm, LogInForm, CommentForm\nfrom functools import wraps\nfrom flask import abort\nimport os\nfrom dotenv import load_dotenv  # pip install python-dotenv\n\nload_dotenv(\"/Users/zanehyatt/Desktop/EnvironmentVariables/env.txt\")\n\napp = Flask(__name__)\napp.config['SECRET_KEY'] = os.getenv(\"SecretKey\")\nckeditor = CKEditor(app)\nBootstrap(app)\n\n##CONNECT TO DB\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'\napp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False\ndb = SQLAlchemy(app)\n\nlogin_manager = LoginManager()\nlogin_manager.init_app(app)\n\n\ngravatar = Gravatar(app,\n                    size=100,\n                    rating='g',\n                    default='retro',\n                    force_default=False,\n                    force_lower=False,\n                    use_ssl=False,\n                    base_url=None)\n\ndef admin_only(f):\n    @wraps(f)\n    def decorated_function(*args, **kwargs):\n        if current_user.id != 1:\n            return abort(403)\n        return f(*args, **kwargs)\n    return decorated_function\n\n@login_manager.user_loader\ndef load_user(user_id):\n    return User.query.get(int(user_id))\n\n\n##CONFIGURE TABLES\n\nclass User(UserMixin, db.Model):\n    __tablename__ = \"users\"\n    id = db.Column(db.Integer, primary_key=True)\n    email = db.Column(db.String(100), unique=True)\n    password = db.Column(db.String(100))\n    name = db.Column(db.String(1000))\n    posts = relationship(\"BlogPost\", back_populates=\"author\")\n    comments = relationship(\"Comment\", back_populates=\"comment_author\")\n\nclass BlogPost(db.Model):\n    __tablename__ = \"blog_posts\"\n    id = db.Column(db.Integer, primary_key=True)\n    author_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"))\n    author = relationship(\"User\", back_populates=\"posts\")\n    title = db.Column(db.String(250), unique=True, nullable=False)\n    subtitle = db.Column(db.String(250), nullable=False)\n    date = db.Column(db.String(250), nullable=False)\n    body = db.Column(db.Text, nullable=False)\n    img_url = db.Column(db.String(250), nullable=False)\n    comments = relationship(\"Comment\", back_populates=\"parent_post\")\n\n\nclass Comment(db.Model):\n    __tablename__ = \"comments\"\n    id = db.Column(db.Integer, primary_key=True)\n    author_id = db.Column(db.Integer, db.ForeignKey(\"users.id\"))\n    comment_author = relationship(\"User\", back_populates=\"comments\")\n    post_id = db.Column(db.Integer, db.ForeignKey(\"blog_posts.id\"))\n    parent_post = relationship(\"BlogPost\", back_populates=\"comments\")\n    text = db.Column(db.Text, nullable=False)\n\ndb.create_all()\n\n@app.route('/')\ndef get_all_posts():\n    posts = BlogPost.query.all()\n    return render_template(\"index.html\", all_posts=posts, current_user=current_user)\n\n\n@app.route('/register', methods=[\"GET\", \"POST\"])\ndef register():\n    form = RegisterForm()\n    if form.validate_on_submit():\n        email=form.email.data\n        name=form.name.data\n        exist = User.query.filter_by(email=email).first()\n        if not exist:\n            hash_and_salted_password = generate_password_hash(form.password.data, method='pbkdf2:sha256', salt_length=8)\n            new_user = User(\n                email=email,\n                password=hash_and_salted_password,\n                name=name,\n            )\n            db.session.add(new_user)\n            db.session.commit()\n            login_user(new_user)\n            return redirect(url_for(\"get_all_posts\"))\n        else:\n            flash(\"You've already signed up with that email, log in instead.\")\n            return redirect(url_for(\"login\"))\n    return render_template(\"register.html\", form=form, logged_in=current_user.is_authenticated)\n\n\n@app.route('/login', methods=[\"GET\", \"POST\"])\ndef login():\n    form = LogInForm()\n    if form.validate_on_submit():\n        email = form.email.data\n        password = form.password.data\n\n        user = User.query.filter_by(email=email).first()\n        if not user:\n            flash(\"That email does not exist, please try again.\")\n            return redirect(url_for(\"login\"))\n        elif not check_password_hash(user.password, password):\n            flash('Password incorrect, please try again.')\n            return redirect(url_for(\"login\"))\n        else:\n            login_user(user)\n            return redirect(url_for('get_all_posts'))\n    return render_template(\"login.html\", form=form, logged_in=current_user.is_authenticated)\n\n\n@app.route('/logout')\ndef logout():\n    logout_user()\n    return redirect(url_for('get_all_posts'))\n\n\n@app.route(\"/post/<int:post_id>\", methods=[\"GET\", \"POST\"])\ndef show_post(post_id):\n    requested_post = BlogPost.query.get(post_id)\n    form = CommentForm()\n    if form.validate_on_submit():\n        if not current_user.is_authenticated:\n            flash(\"You need to login or register to comment.\")\n            return redirect(url_for(\"login\"))\n\n        text = form.comment.data\n        new_comment = Comment(\n            text=text,\n            comment_author=current_user,\n            parent_post= requested_post,\n        )\n        db.session.add(new_comment)\n        db.session.commit()\n    return render_template(\"post.html\", post=requested_post, form=form, current_user=current_user)\n\n\n@app.route(\"/about\")\ndef about():\n    return render_template(\"about.html\")\n\n\n@app.route(\"/contact\")\ndef contact():\n    return render_template(\"contact.html\")\n\n\n@app.route(\"/new-post\", methods=['GET', 'POST'])\n@admin_only\ndef add_new_post():\n    form = CreatePostForm()\n    if form.validate_on_submit():\n        new_post = BlogPost(\n            title=form.title.data,\n            subtitle=form.subtitle.data,\n            body=form.body.data,\n            img_url=form.img_url.data,\n            author=current_user,\n            date=date.today().strftime(\"%B %d, %Y\")\n        )\n        db.session.add(new_post)\n        db.session.commit()\n        return redirect(url_for(\"get_all_posts\"))\n    return render_template(\"make-post.html\", form=form)\n\n\n@app.route(\"/edit-post/<int:post_id>\", methods=['GET', 'POST'])\n@admin_only\ndef edit_post(post_id):\n    post = BlogPost.query.get(post_id)\n    edit_form = CreatePostForm(\n        title=post.title,\n        subtitle=post.subtitle,\n        img_url=post.img_url,\n        author=current_user,\n        body=post.body\n    )\n    if edit_form.validate_on_submit():\n        post.title = edit_form.title.data\n        post.subtitle = edit_form.subtitle.data\n        post.img_url = edit_form.img_url.data\n        post.body = edit_form.body.data\n        db.session.commit()\n        return redirect(url_for(\"show_post\", post_id=post.id))\n\n    return render_template(\"make-post.html\", form=edit_form)\n\n\n@app.route(\"/delete/<int:post_id>\")\n@admin_only\ndef delete_post(post_id):\n    post_to_delete = BlogPost.query.get(post_id)\n    db.session.delete(post_to_delete)\n    db.session.commit()\n    return redirect(url_for('get_all_posts'))\n\n\nif __name__ == \"__main__\":\n    app.run(debug=True)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision 2289c8ea17b4225677f8dae7a267fd62752bce0b)
++++ b/main.py	(date 1687485405392)
+@@ -1,4 +1,4 @@
+-from flask import Flask, render_template, redirect, url_for, flash
++from flask import Flask, render_template, redirect, url_for, flash, request
+ from flask_bootstrap import Bootstrap
+ from flask_ckeditor import CKEditor
+ from datetime import date
+@@ -13,6 +13,8 @@
+ from flask import abort
+ import os
+ from dotenv import load_dotenv  # pip install python-dotenv
++import smtplib
++
+ 
+ load_dotenv("/Users/zanehyatt/Desktop/EnvironmentVariables/env.txt")
+ 
+@@ -21,6 +23,10 @@
+ ckeditor = CKEditor(app)
+ Bootstrap(app)
+ 
++OWN_EMAIL = 'zanehyatt@gmail.com'
++OWN_PASSWORD = 'drmtqafpcuaruete'
++
++
+ ##CONNECT TO DB
+ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+@@ -168,9 +174,26 @@
+     return render_template("about.html")
+ 
+ 
+-@app.route("/contact")
++@app.route("/contact", methods=["GET", "POST"])
+ def contact():
+-    return render_template("contact.html")
++    if request.method == "POST":
++        data = request.form
++        print(data)
++        if data["name"] and data["email"] and data["message"] != "":
++            send_email(data["name"], data["email"], data["phone"], data["message"])
++        else:
++            flash("You can't send a message without filling name, email and message fields.")
++            return render_template("contact.html", msg_sent=False)
++        return render_template("contact.html", msg_sent=True)
++    return render_template("contact.html", msg_sent=False)
++
++
++def send_email(name, email, phone, message):
++    email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
++    with smtplib.SMTP("smtp.gmail.com") as connection:
++        connection.starttls()
++        connection.login(OWN_EMAIL, OWN_PASSWORD)
++        connection.sendmail(OWN_EMAIL, OWN_EMAIL, email_message)
+ 
+ 
+ @app.route("/new-post", methods=['GET', 'POST'])
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"bcc330b9-5320-4531-9c9e-c4d3dafcfcbf\" name=\"Changes\" comment=\"Add gunicorn\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/main.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2PwK2NowzZgOisZWkXU7kXCpWxg\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/zanehyatt/Desktop/100Day Code/Projects/Starting+Files+-+blog-with-users-start&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/static/img\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"bcc330b9-5320-4531-9c9e-c4d3dafcfcbf\" name=\"Changes\" comment=\"\" />\n      <created>1684362495318</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1684362495318</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\n      <created>1684702012891</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684702012891</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Initial Commit\">\n      <created>1684702078675</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684702078675</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Initial Commit\">\n      <created>1684786107102</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684786107102</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Initial Commit\">\n      <created>1684786115570</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1684786115570</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Add gunicorn\">\n      <created>1687374921263</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687374921263</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Add gunicorn\">\n      <created>1687406885430</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1687406885430</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Initial Commit\" />\n    <MESSAGE value=\"Add gunicorn\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Add gunicorn\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2289c8ea17b4225677f8dae7a267fd62752bce0b)
++++ b/.idea/workspace.xml	(date 1687485438194)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="bcc330b9-5320-4531-9c9e-c4d3dafcfcbf" name="Changes" comment="Add gunicorn">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="bcc330b9-5320-4531-9c9e-c4d3dafcfcbf" name="Changes" comment="Add env key">
+       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -90,7 +90,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1687406885430</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="Add env key">
++      <created>1687466372724</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1687466372724</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -107,6 +114,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Initial Commit" />
+     <MESSAGE value="Add gunicorn" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Add gunicorn" />
++    <MESSAGE value="Add env key" />
++    <option name="LAST_COMMIT_MESSAGE" value="Add env key" />
+   </component>
+ </project>
+\ No newline at end of file
