@@ -13,3 +13,6 @@ Dreamscape Chronicles is a website created with Flask framework, Bootstrap 5, CS
 - Register and log-in forms so users can sign in with indevidual acounts. 
 - A contect form that will send emails to me with smtplib.
 - Admin users can edit and make new post. Regular users can only post comments.
+
+## Deployment
+This project is deployed on Render and can be accessed at https://zanes-blog.onrender.com.
